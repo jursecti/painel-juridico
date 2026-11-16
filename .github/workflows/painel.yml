@@ -1,0 +1,63 @@
+name: Atualizar painel
+
+on:
+  schedule:
+    # Horários em UTC. Recife = UTC-3.
+    - cron: "5 10-20/2 * * 1-5"   # dias úteis, de duas em duas horas, das 7h05 às 17h05
+    - cron: "30 10 * * 1"         # segunda-feira, 7h30: atualiza e envia o e-mail semanal
+  workflow_dispatch:
+    inputs:
+      enviar_email:
+        description: "Enviar também o e-mail de prazos agora"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ["site/**", "scripts/**", "config.json", ".github/workflows/painel.yml"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: painel
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install --quiet google-auth requests
+      - name: Ler a planilha, gerar os dados e (às segundas) enviar o e-mail
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          PAINEL_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: |
+          EMAIL=""
+          if [ "${{ github.event.schedule }}" = "30 10 * * 1" ] || [ "${{ inputs.enviar_email }}" = "true" ]; then EMAIL="--email"; fi
+          python scripts/build.py --out site/data.json $EMAIL
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Registrar a execução semanal (mantém o agendamento ativo)
+        if: github.event.schedule == '30 10 * * 1'
+        run: |
+          date -u +"%Y-%m-%d %H:%M UTC" > ultima-execucao.txt
+          git config user.name "painel-juridico"
+          git config user.email "actions@users.noreply.github.com"
+          git add ultima-execucao.txt
+          git commit -m "Registro da execução semanal" || true
+          git push || true

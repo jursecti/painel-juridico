@@ -1,0 +1,826 @@
+{
+  "planilha_id": "1IZW2M8JgxIrhLw0ScmGWxINo1wFgVuRIA1wN6sQFfOk",
+  "titulo": "Painel do Jurídico – SECTI/PE",
+  "email_para": [
+    "juridicosecti@secti.pe.gov.br"
+  ],
+  "abas_ignoradas": [
+    "DIÁRIO",
+    "DEMANDAS INTERNAS",
+    "SOBRESTAMENTO",
+    "Painel_Contratos",
+    "Contatos_Telefônicos",
+    "Controle_CEPE",
+    "Controle_DOE",
+    "PEIntegrado",
+    "TimeSECTI",
+    "Autoridades"
+  ],
+  "abas": [
+    {
+      "aba": "Contratos",
+      "id": "contratos",
+      "rotulo": "Contratos",
+      "singular": "Contrato",
+      "modo": "acessorio",
+      "numero": "Nº DO CONTRATO",
+      "tipo": "TIPO DE INSTRUMENTO",
+      "demais": "Nº DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "SITUAÇÃO",
+        "FASE"
+      ],
+      "unidade": "SETOR DA GESTÃO",
+      "partes": [
+        "FORNECEDOR"
+      ],
+      "cnpj": [
+        "CNPJ"
+      ],
+      "pessoas": {
+        "Gestor": "TERCEIRO / APOIO / GESTOR",
+        "Fiscal": "FISCAL DO CONTRATO"
+      },
+      "publicas": [
+        "Nº DO CONTRATO",
+        "TIPO DE INSTRUMENTO",
+        "Nº DEMAIS INSTRUMENTOS",
+        "PROCESSO SEI",
+        "Nº DO PROCESSO LICITATÓRIO",
+        "LEGISLAÇÃO",
+        "Nº DA MODALIDADE LICITATORIA|Modalidade",
+        "TIPO DO OBJETO",
+        "FORNECEDOR",
+        "CNPJ",
+        "OBJETO",
+        "DATA DA CELEBRAÇÃO",
+        "VIGÊNCIA INÍCIO|Início da vigência",
+        "VIGÊNCIA TÉRMINO|Término da vigência",
+        "EXECUÇÃO TÉRMINO|Término da execução",
+        "Nº ATUAL|Aditivo atual",
+        "NATUREZA DO TA|Natureza do aditivo",
+        "VIGÊNCIA INICIAL|Vigência do aditivo – início",
+        "VIGÊNCIA FINAL|Vigência atual – fim",
+        "EXECUÇÃO FINAL|Execução atual – fim",
+        "VALOR MENSAL ATUALIZADO",
+        "VALOR GLOBAL DO CONTRATO",
+        "FONTE",
+        "Nº EMPENHO",
+        "VALOR DO EMPENHO",
+        "DATA EMPENHO",
+        "SITUAÇÃO",
+        "FASE",
+        "DATA PUBLICAÇÃO",
+        "NÚMERO DO CONTRATO NO PORTAL NACIONAL|Nº no PNCP",
+        "NÚMERO DO CONTRATO PE INTEGRADO|Nº no PE Integrado",
+        "TERCEIRO / APOIO / GESTOR|Gestor",
+        "SETOR DA GESTÃO",
+        "FISCAL DO CONTRATO|Fiscal",
+        "SETOR DA FISCALIZAÇÃO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "VIGÊNCIA FINAL",
+            "VIGÊNCIA TÉRMINO"
+          ],
+          "antecedencia": 120
+        },
+        {
+          "tipo": "Execução",
+          "colunas": [
+            "EXECUÇÃO FINAL",
+            "EXECUÇÃO TÉRMINO"
+          ],
+          "antecedencia": 120
+        }
+      ],
+      "pendencias": [
+        "REMESSA TCEPE",
+        "NÚMERO DO CONTRATO NO PORTAL NACIONAL",
+        "NÚMERO DO CONTRATO PE INTEGRADO",
+        "DATA PUBLICAÇÃO"
+      ],
+      "internas": {
+        "Nota técnica pendente de retorno": "NOTA TÉCNICA PENDENTE DE RETORNO"
+      }
+    },
+    {
+      "aba": "Atas",
+      "id": "atas",
+      "rotulo": "Atas de Registro de Preços",
+      "singular": "Ata",
+      "modo": "acessorio",
+      "itens": true,
+      "numero": "Nº DA ATA",
+      "tipo": "TIPO DE OBJETO",
+      "demais": "Nº DOS DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "Unidade",
+      "partes": [
+        "DETENTORA DA ATA 1",
+        "DETENTORA DA ATA 2"
+      ],
+      "cnpj": [
+        "CNPJ - DETENTORA DA ATA 1",
+        "CNPJ - DETENTORA DA ATA 2"
+      ],
+      "pessoas": {
+        "Gestor": "Gestor"
+      },
+      "publicas": [
+        "Nº DA ATA",
+        "TIPO DE OBJETO",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "PROCESSO SEI",
+        "LEGISLAÇÃO",
+        "Nº DO PROCESSO LICITATÓRIO",
+        "Nº DA MODALIDADE LICITATÓRIA|Modalidade",
+        "DATA DA HOMOLOGAÇÃO (DOE)",
+        "Unidade",
+        "Gestor",
+        "DETENTORA DA ATA 1",
+        "CNPJ - DETENTORA DA ATA 1",
+        "DETENTORA DA ATA 2",
+        "CNPJ - DETENTORA DA ATA 2",
+        "OBJETO",
+        "VALOR TOTAL DA ATA",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO DA VIGÊNCIA",
+        "FIM DA VIGÊNCIA",
+        "Nº DO PE-INTEGRADO",
+        "Nº DO PNCP",
+        "DATA DE PUBLICAÇÃO (PNCP/DOE)",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INÍCIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS"
+      ],
+      "publicas_item": [
+        "Nº ITEM / CONSUMO|Item",
+        "ITENS - DESCRIÇÃO|Descrição",
+        "DETENTORA DA ATA 2|Detentora",
+        "ITENS - UNID|Unidade",
+        "ITENS - QUANTITATIVO REGISTRADO NA ATA|Registrado",
+        "ITENS - QUANTITATIVO RESTANTE PARA PARTICIPANTES|Restante",
+        "ITENS - VALOR UNITÁRIO|Valor unitário",
+        "VALOR TOTAL"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM DA VIGÊNCIA"
+          ],
+          "antecedencia": 120
+        }
+      ],
+      "pendencias": [
+        "REMESSA TCE",
+        "Nº DO PE-INTEGRADO",
+        "Nº DO PNCP",
+        "PUBLICAÇÃO DOE/PNCP DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "CGs",
+      "id": "cgs",
+      "rotulo": "Contratos de Gestão",
+      "singular": "Contrato de Gestão",
+      "modo": "acessorio",
+      "numero": "Nº do Instrumento Mater",
+      "tipo": "INSTRUMENTO",
+      "demais": "Nº dos Demais Instrumentos",
+      "sei": "Processo Administrativo / Processo SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "UNIDADE",
+      "partes": [
+        "CONTRATADA"
+      ],
+      "cnpj": [
+        "CNPJ"
+      ],
+      "pessoas": {
+        "Gestor": "GESTOR ATUAL",
+        "Comissão (titular)": "Comissão - Membro Titular",
+        "Comissão (suplente)": "Comissão - Membro Suplente"
+      },
+      "publicas": [
+        "Nº do Instrumento Mater",
+        "INSTRUMENTO",
+        "Nº dos Demais Instrumentos",
+        "Processo Administrativo / Processo SEI",
+        "CONTRATADA",
+        "CNPJ",
+        "UNIDADE",
+        "GESTOR ATUAL",
+        "NOME DA COMISSÃO",
+        "Comissão - Instituição",
+        "Comissão - Membro Titular",
+        "Comissão - Membro Suplente",
+        "Comissão - Nº da Portaria SECTI",
+        "Comissão - DOE da Portaria",
+        "Última Titulação",
+        "Última Vigência da Titulação",
+        "OBJETO",
+        "MACROPROCESSOS",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO DA VIGÊNCIA",
+        "FIM DA VIGÊNCIA",
+        "PUBLICAÇÃO DOE",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INÍCIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS",
+        "VALOR",
+        "VALOR ATUAL",
+        "NÚMERO DO EMPENHO",
+        "DATA DO EMPENHO",
+        "VALOR DO EMPENHO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM DA VIGÊNCIA"
+          ],
+          "antecedencia": 180
+        },
+        {
+          "tipo": "Titulação de OS",
+          "colunas": [
+            "Última Vigência da Titulação"
+          ],
+          "antecedencia": 180
+        }
+      ],
+      "pendencias": [
+        "REMESSA TCE",
+        "PUBLICAÇÃO DOE DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "Convênios_e_Afins",
+      "id": "convenios",
+      "rotulo": "Convênios e afins",
+      "singular": "Convênio",
+      "modo": "acessorio",
+      "numero": "Nº DO CONVÊNIO",
+      "tipo": "TIPO",
+      "demais": "Nº DOS DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "Unidade",
+      "projeto": "PROJETO",
+      "partes": [
+        "CONCEDENTE",
+        "CONVENENTE",
+        "INTERVENIENTE",
+        "CO-EXECUTOR 1",
+        "CO-EXECUTOR 2"
+      ],
+      "cnpj": [
+        "CNPJ DO CONCEDENTE",
+        "CNPJ DO CONVENENTE",
+        "CNPJ DO INTERVENIENTE",
+        "CNPJ DO CO-EXECUTOR 1",
+        "CNPJ DO CO-EXECUTOR 2"
+      ],
+      "pessoas": {
+        "Gestor": "Gestor"
+      },
+      "publicas": [
+        "Nº DO CONVÊNIO",
+        "TIPO",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "RECEITA / DESPESA",
+        "PROCESSO SEI",
+        "PROJETO",
+        "Unidade",
+        "Gestor",
+        "CONCEDENTE",
+        "CONVENENTE",
+        "INTERVENIENTE",
+        "CO-EXECUTOR 1",
+        "CO-EXECUTOR 2",
+        "OBJETO",
+        "VALOR TOTAL",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO DA VIGÊNCIA",
+        "FIM DA VIGÊNCIA",
+        "DATA DE PUBLICAÇÃO (DOE/DOU)",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INÍCIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS",
+        "REPASSE TOTAL - CONCEDENTE",
+        "CONTRAPARTIDA TOTAL - CONVENENTE",
+        "DATA FINAL PARA PRESTAÇÃO DE CONTAS"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM DA VIGÊNCIA"
+          ],
+          "antecedencia": 120
+        },
+        {
+          "tipo": "Prestação de contas",
+          "colunas": [
+            "DATA FINAL PARA PRESTAÇÃO DE CONTAS",
+            "DATA DA PRESTAÇÃO DE CONTAS ATUAL"
+          ],
+          "antecedencia": 60
+        }
+      ],
+      "pendencias": [
+        "REMESSA TCE",
+        "PUBLICAÇÃO DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "ACT",
+      "id": "act",
+      "rotulo": "Acordos de Cooperação",
+      "singular": "Acordo de Cooperação",
+      "modo": "acessorio",
+      "numero": "Nº DO INSTRUMENTO MATER",
+      "tipo": "TIPO INSTRUMENTO",
+      "demais": "Nº DOS DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "Unidade",
+      "projeto": "PROJETO",
+      "partes_regex": "^PARTE \\d+$",
+      "pessoas": {
+        "Gestor": "Gestor"
+      },
+      "publicas": [
+        "PROCESSO SEI",
+        "Nº DO INSTRUMENTO MATER",
+        "TIPO INSTRUMENTO",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "PROJETO",
+        "CTI / MROSC",
+        "Unidade",
+        "Gestor",
+        "OBJETO",
+        "TIPO|Natureza",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO DA VIGÊNCIA",
+        "FIM DA VIGÊNCIA",
+        "PUBLICAÇÃO DOE",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INÍCIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PUBLICAÇÃO DOE DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS",
+        "FUNDAMENTAÇÃO DO INSTRUMENTO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM DA VIGÊNCIA"
+          ],
+          "antecedencia": 120
+        }
+      ],
+      "pendencias": [
+        "REMESSA TCE",
+        "PUBLICAÇÃO DOE DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "Alianças",
+      "id": "aliancas",
+      "rotulo": "Alianças Estratégicas",
+      "singular": "Aliança",
+      "modo": "acessorio",
+      "numero": "Nº DO INSTRUMENTO MATER",
+      "tipo": "INSTRUMENTO",
+      "demais": "Nº DOS DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "Unidade",
+      "projeto": "PROJETO",
+      "partes_regex": "^\\d+$",
+      "pessoas": {
+        "Gestor": "Gestor"
+      },
+      "publicas": [
+        "PROCESSO SEI",
+        "Nº DO INSTRUMENTO MATER",
+        "INSTRUMENTO",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "PROJETO",
+        "CTI / MROSC",
+        "Unidade",
+        "Gestor",
+        "OBJETO",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO",
+        "FIM",
+        "PUBLICAÇÃO DOE",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INICIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS",
+        "FUNDAMENTAÇÃO DO INSTRUMENTO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM"
+          ],
+          "antecedencia": 120
+        }
+      ],
+      "pendencias": [
+        "PUBLICAÇÃO DOE DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "Cessão_e_Afins",
+      "id": "cessoes",
+      "rotulo": "Cessões e afins",
+      "singular": "Cessão",
+      "modo": "acessorio",
+      "numero": "Nº DO INSTRUMENTO MATER",
+      "tipo": "INSTRUMENTO",
+      "demais": "Nº DOS DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "Unidade",
+      "projeto": "PROJETO",
+      "partes_regex": "^PARTE \\d+$",
+      "pessoas": {
+        "Gestor": "Gestor"
+      },
+      "publicas": [
+        "PROCESSO SEI",
+        "Nº DO INSTRUMENTO MATER",
+        "INSTRUMENTO",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "PROJETO",
+        "Unidade",
+        "Gestor",
+        "OBJETO",
+        "TIPO|Natureza",
+        "LOCAL",
+        "BENS",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO DA VIGÊNCIA",
+        "FIM DA VIGÊNCIA",
+        "PUBLICAÇÃO DOE",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INÍCIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS",
+        "FUNDAMENTAÇÃO DO INSTRUMENTO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM DA VIGÊNCIA"
+          ],
+          "antecedencia": 120
+        }
+      ],
+      "pendencias": [
+        "PUBLICAÇÃO DOE DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "Protocolos/Memorandos",
+      "id": "protocolos",
+      "rotulo": "Protocolos e Memorandos",
+      "singular": "Protocolo",
+      "modo": "acessorio",
+      "numero": "Nº DO INSTRUMENTO",
+      "tipo": "INSTRUMENTO",
+      "demais": "Nº DOS DEMAIS INSTRUMENTOS",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "Unidade",
+      "projeto": "PROJETO",
+      "partes_regex": "^PARTE \\d+$",
+      "pessoas": {
+        "Gestor": "Gestor"
+      },
+      "publicas": [
+        "PROCESSO SEI",
+        "Nº DO INSTRUMENTO",
+        "INSTRUMENTO",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "PROJETO",
+        "Unidade",
+        "Gestor",
+        "OBJETO",
+        "TIPO|Natureza",
+        "DATA DA CELEBRAÇÃO",
+        "INÍCIO DA VIGÊNCIA",
+        "FIM DA VIGÊNCIA",
+        "PUBLICAÇÃO DOE",
+        "Nº ATUAL DO ADITIVO",
+        "NATUREZA DO ADITIVO",
+        "INÍCIO DO ADITIVO",
+        "FIM DO ADITIVO",
+        "PRAZO FINAL ATUAL",
+        "STATUS",
+        "FUNDAMENTAÇÃO DO INSTRUMENTO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Vigência",
+          "colunas": [
+            "PRAZO FINAL ATUAL",
+            "FIM DO ADITIVO",
+            "FIM DA VIGÊNCIA"
+          ],
+          "antecedencia": 120
+        }
+      ],
+      "pendencias": [
+        "PUBLICAÇÃO DOE DO ADITIVO"
+      ]
+    },
+    {
+      "aba": "Portarias",
+      "id": "portarias",
+      "rotulo": "Portarias",
+      "singular": "Portaria",
+      "modo": "consecutivo",
+      "chave": "DESIGNAÇÃO",
+      "titulo": "DESIGNAÇÃO",
+      "numero": "PORTARIA SECTI",
+      "tipo": "TIPO",
+      "sei": "PROCESSO SEI",
+      "status": [
+        "STATUS"
+      ],
+      "pessoas": {
+        "Designado": "COLABORADOR"
+      },
+      "publicas": [
+        "TIPO",
+        "DESIGNAÇÃO",
+        "NORMATIVO",
+        "PORTARIA SECTI",
+        "PUBLICAÇÃO NO DOE",
+        "VIGÊNCIA",
+        "PRAZO INICIAL DA PORTARIA|Prazo inicial",
+        "PRAZO FINAL",
+        "STATUS",
+        "PROCESSO SEI",
+        "HISTÓRICO DE PORTARIAS"
+      ],
+      "publicas_item": [
+        "COLABORADOR",
+        "ATIVIDADE/FUNÇÃO|Função",
+        "DETALHAMENTO",
+        "PORTARIA SECTI|Portaria",
+        "PUBLICAÇÃO NO DOE|DOE"
+      ],
+      "prazos": [
+        {
+          "tipo": "Prazo final da portaria",
+          "colunas": [
+            "PRAZO FINAL"
+          ],
+          "antecedencia": 60
+        }
+      ]
+    },
+    {
+      "aba": "ISIs",
+      "id": "isis",
+      "rotulo": "Instruções de Serviço (ISIs)",
+      "singular": "ISI",
+      "modo": "simples",
+      "titulo": "DESIGNAÇÃO",
+      "numero": "ISI SECTI",
+      "sei": "PROCESSO SEI",
+      "status": [
+        "STATUS"
+      ],
+      "publicas": [
+        "DESIGNAÇÃO",
+        "NORMATIVO",
+        "ISI SECTI",
+        "PUBLICAÇÃO NO DOE",
+        "VIGÊNCIA",
+        "PRAZO INICIAL",
+        "PRAZO FINAL",
+        "STATUS",
+        "PROCESSO SEI"
+      ],
+      "prazos": [
+        {
+          "tipo": "Prazo final da ISI",
+          "colunas": [
+            "PRAZO FINAL"
+          ],
+          "antecedencia": 60
+        }
+      ]
+    },
+    {
+      "aba": "Conselhos",
+      "id": "conselhos",
+      "rotulo": "Conselhos e colegiados",
+      "singular": "Conselho",
+      "modo": "simples",
+      "titulo": "CONSELHO E OUTROS",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "ÓRGÃO OU ENTIDADE RESPONSÁVEL",
+      "pessoas": {
+        "Titular": "REPRESENTANTE TITULAR",
+        "Suplente": "REPRESENTANTE SUPLENTE"
+      },
+      "publicas": [
+        "CONSELHO E OUTROS|Conselho ou colegiado",
+        "ÓRGÃO OU ENTIDADE RESPONSÁVEL",
+        "FUNDAMENTAÇÃO LEGAL",
+        "ATO CORRESPONDENTE (DOE)|Ato correspondente",
+        "Natureza do vínculo",
+        "REPRESENTANTE TITULAR",
+        "REPRESENTANTE SUPLENTE",
+        "Natureza do vínculo do suplente",
+        "PRAZO DE DURAÇÃO",
+        "STATUS"
+      ],
+      "prazos": [
+        {
+          "tipo": "Fim do mandato",
+          "colunas": [
+            "PRAZO DE DURAÇÃO"
+          ],
+          "antecedencia": 60
+        }
+      ]
+    },
+    {
+      "aba": "Edital",
+      "id": "editais",
+      "rotulo": "Editais",
+      "singular": "Edital",
+      "modo": "simples",
+      "titulo": "PROGRAMA",
+      "numero": "Nº DO EDITAL",
+      "sei": "PROCESSO SEI",
+      "objeto": "OBJETO DETALHADO",
+      "status": [
+        "STATUS"
+      ],
+      "unidade": "DIRETORIA",
+      "pessoas": {
+        "Comissão": "COMISSÃO/"
+      },
+      "publicas": [
+        "PROCESSO SEI",
+        "Nº DO EDITAL",
+        "Nº DOS DEMAIS INSTRUMENTOS",
+        "PROGRAMA",
+        "OBJETO DETALHADO|Objeto",
+        "NORMATIVO",
+        "CTI/MROSC",
+        "PRAZO INICIAL",
+        "PRAZO FINAL",
+        "STATUS",
+        "DIRETORIA",
+        "COMISSÃO/|Comissão",
+        "FUNÇÃO"
+      ],
+      "prazos": [
+        {
+          "tipo": "Prazo final do edital",
+          "colunas": [
+            "PRAZO FINAL"
+          ],
+          "antecedencia": 15
+        }
+      ]
+    },
+    {
+      "aba": "Normas",
+      "id": "normas",
+      "rotulo": "Normas",
+      "singular": "Norma",
+      "modo": "simples",
+      "numero": "Número",
+      "tipo": "Normativa",
+      "unidade": "Unidade",
+      "sempre_ativo": true,
+      "publicas": [
+        "Normativa",
+        "Número",
+        "Ano",
+        "Tipo",
+        "Matéria",
+        "Unidade",
+        "Ementa",
+        "Link"
+      ],
+      "titulo_composto": [
+        "Normativa",
+        "Número",
+        "Ano"
+      ],
+      "objeto": "Ementa"
+    }
+  ],
+  "internas": [
+    {
+      "aba": "PAAPs",
+      "tipo": "prazo",
+      "rotulo": "PAAP – fim do prazo da comissão",
+      "coluna": "FIM",
+      "antecedencia": 30,
+      "status": "VIGÊNCIA",
+      "descricao": [
+        "PORTARIA",
+        "EMPRESA",
+        "SEI"
+      ]
+    },
+    {
+      "aba": "DEMANDAS EXTERNAS",
+      "tipo": "parado",
+      "rotulo": "Demanda externa sem contato recente",
+      "coluna": "ÚLTIMO CONTATO",
+      "dias": 30,
+      "descricao": [
+        "DEMANDA EXTERNA (SEI)",
+        "DEMANDA",
+        "LOCALIZAÇÃO ATUAL"
+      ]
+    },
+    {
+      "aba": "PROCESSOS_TCE",
+      "tipo": "parado",
+      "rotulo": "Processo do TCE com verificação atrasada",
+      "coluna": "Última Verificação",
+      "dias": 15,
+      "descricao": [
+        "Processo",
+        "Situação Atual",
+        "Setor Atual"
+      ]
+    }
+  ]
+}

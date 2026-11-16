@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Painel do Jurídico – SECTI/PE</title>
+<style>
+:root{--tinta:#16222e;--suave:#5a6876;--linha:#dfe4ea;--fundo:#f4f6f8;--papel:#fff;--marca:#0b4f6c;--marca2:#0e7490;--ok:#1f7a4d;--okbg:#e4f4ea;--alerta:#9a5b00;--alertabg:#fdf0d5;--perigo:#b42318;--perigobg:#fde8e6;--neutro:#eef1f4}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--tinta);background:var(--fundo)}
+a{color:var(--marca2);text-decoration:none}a:hover{text-decoration:underline}
+header{background:var(--marca);color:#fff}
+.barra{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.barra a{color:#fff}.logo{font-weight:700;font-size:17px;letter-spacing:.2px;margin-right:auto}
+.logo small{display:block;font-weight:400;font-size:12px;opacity:.8}
+nav{display:flex;gap:16px;font-size:14px}nav a{opacity:.9;padding:4px 0;border-bottom:2px solid transparent}nav a.on{border-color:#fff;opacity:1}
+main{max-width:1080px;margin:0 auto;padding:22px 20px 60px}
+.heroi{background:var(--papel);border:1px solid var(--linha);border-radius:12px;padding:26px 24px;margin-bottom:22px}
+.heroi h1{margin:0 0 4px;font-size:22px}.heroi p{margin:0 0 16px;color:var(--suave)}
+.busca{display:flex;gap:8px}
+.busca input{flex:1;font:inherit;font-size:17px;padding:12px 14px;border:2px solid var(--linha);border-radius:10px;outline:none;min-width:0}
+.busca input:focus{border-color:var(--marca2)}
+button,.botao{font:inherit;cursor:pointer;border:1px solid var(--marca);background:var(--marca);color:#fff;border-radius:10px;padding:0 18px}
+.dicas{margin-top:10px;font-size:13px;color:var(--suave)}
+h2{font-size:17px;margin:26px 0 10px}h2 small{font-weight:400;color:var(--suave);font-size:13px;margin-left:6px}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.cartao{display:block;background:var(--papel);border:1px solid var(--linha);border-radius:10px;padding:12px 14px;color:inherit}
+.cartao:hover{border-color:var(--marca2);text-decoration:none}
+.cartao b{display:block;font-size:22px;line-height:1.2}.cartao span{font-size:13px;color:var(--suave)}
+.cartao.perigo b{color:var(--perigo)}.cartao.alerta b{color:var(--alerta)}
+.lista{background:var(--papel);border:1px solid var(--linha);border-radius:10px;overflow:hidden}
+.item{display:block;padding:12px 16px;border-bottom:1px solid var(--linha);color:inherit}
+.item:last-child{border-bottom:0}.item:hover{background:#f8fafb;text-decoration:none}
+.item .t{font-weight:600}.item .s{color:var(--suave);font-size:13.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .m{font-size:12.5px;color:var(--suave);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.selo{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:99px;background:var(--neutro);color:var(--suave);vertical-align:middle;white-space:nowrap}
+.selo.ok{background:var(--okbg);color:var(--ok)}.selo.alerta{background:var(--alertabg);color:var(--alerta)}.selo.perigo{background:var(--perigobg);color:var(--perigo)}.selo.aba{background:#e3eef3;color:var(--marca)}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px;align-items:center}
+.filtros input[type=text],.filtros select{font:inherit;padding:8px 10px;border:1px solid var(--linha);border-radius:8px;background:#fff}
+.filtros input[type=text]{flex:1;min-width:200px}.filtros label{font-size:14px;color:var(--suave)}
+.ficha{background:var(--papel);border:1px solid var(--linha);border-radius:12px;padding:22px 24px}
+.ficha h1{font-size:21px;margin:6px 0 4px}.ficha .sub{color:var(--suave);margin:0 0 6px}
+.campos{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 22px;margin:0}
+.campos div.largo{grid-column:1/-1}.campos dt{font-size:12px;color:var(--suave);text-transform:none}.campos dd{margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.prazo{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:8px;background:var(--neutro);margin:6px 0;flex-wrap:wrap}
+.prazo.perigo{background:var(--perigobg)}.prazo.alerta{background:var(--alertabg)}
+details{border:1px solid var(--linha);border-radius:8px;margin:6px 0;background:#fff}summary{padding:9px 12px;cursor:pointer;font-weight:600}details .campos{padding:4px 12px 12px}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--papel)}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--linha);vertical-align:top}th{font-size:12.5px;color:var(--suave);font-weight:600;background:#f8fafb}
+.rolagem{overflow-x:auto;border:1px solid var(--linha);border-radius:10px}
+.chips a{display:inline-block;background:#e3eef3;color:var(--marca);border-radius:99px;padding:2px 10px;margin:0 6px 6px 0;font-size:13.5px}
+.voltar{display:inline-block;margin-bottom:10px;font-size:14px}
+.vazio{padding:28px;text-align:center;color:var(--suave)}
+footer{max-width:1080px;margin:0 auto;padding:0 20px 30px;color:var(--suave);font-size:12.5px}
+@media(max-width:600px){.barra{gap:10px}.ficha{padding:16px}.heroi{padding:18px 16px}}
+</style>
+</head>
+<body>
+<header><div class="barra">
+  <a class="logo" href="#/">Painel do Jurídico<small>Secretaria de Ciência, Tecnologia e Inovação de Pernambuco</small></a>
+  <nav><a href="#/" data-r="">Início</a><a href="#/prazos" data-r="prazos">Prazos</a><a href="#/pessoas" data-r="pessoas">Servidores</a></nav>
+</div></header>
+<main id="app"><div class="vazio">Carregando dados…</div></main>
+<footer id="rodape"></footer>
+<script>
+"use strict";
+let D, REG = {}, PES = {}, ABA = {}, HAY = [];
+const app = document.getElementById("app");
+const nrm = s => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const semZeros = s => s.replace(/\b0+(\d)/g, "$1");
+const dataBR = iso => iso.split("-").reverse().join("/");
+const quando = d => d < 0 ? `vencido há ${-d} dia${d === -1 ? "" : "s"}` : d === 0 ? "vence hoje" : `em ${d} dia${d === 1 ? "" : "s"}`;
+const tom = d => d < 0 ? "perigo" : d <= 30 ? "alerta" : "";
+const FAIXAS = [["vencidos", "Vencidos", d => d < 0], ["7", "Até 7 dias", d => d >= 0 && d <= 7], ["30", "Até 30 dias", d => d >= 0 && d <= 30], ["60", "Até 60 dias", d => d >= 0 && d <= 60], ["todos", "Todos", () => true]];
+
+function seloStatus(r) {
+  const txt = r.status || (r.ativo ? "Vigente" : "Encerrado");
+  return `<span class="selo ${r.ativo ? "ok" : ""}">${esc(txt.split("/")[0].trim())}</span>`;
+}
+function linhaRegistro(r, extra) {
+  const sub = [r.partes.slice(0, 2).join(" · "), r.objeto].filter(Boolean).join(" — ");
+  const p = r.prazos[0];
+  return `<a class="item" href="#/r/${r.id}"><div class="t">${esc(r.titulo)} ${seloStatus(r)}</div>
+    ${sub ? `<div class="s">${esc(sub)}</div>` : ""}
+    <div class="m"><span class="selo aba">${esc(ABA[r.aba].rotulo)}</span>${r.sei ? `<span>SEI ${esc(r.sei.split("\n")[0])}</span>` : ""}${r.unidade ? `<span>${esc(r.unidade)}</span>` : ""}
+    ${p ? `<span class="selo ${tom(p.dias) || "aba"}">${esc(p.tipo)}: ${dataBR(p.data)}</span>` : ""}${extra ? `<span>${esc(extra)}</span>` : ""}</div></a>`;
+}
+function buscar(q) {
+  const toks = nrm(q).split(/\s+/).filter(Boolean);
+  if (!toks.length) return [];
+  const alt = toks.map(t => [t, semZeros(t), t.replace(/\D/g, "")]);
+  const out = [];
+  for (const h of HAY) {
+    let ok = true, peso = 0;
+    for (const [t, z, dg] of alt) {
+      if (h.t.includes(t) || h.t.includes(z)) peso += 3;
+      else if (h.x.includes(t) || h.x.includes(z) || (dg.length >= 5 && dg.length === t.length && h.d.includes(dg))) peso += 1;
+      else { ok = false; break; }
+    }
+    if (ok) out.push([peso + (h.r.ativo ? 0.5 : 0), h.r]);
+  }
+  return out.sort((a, b) => b[0] - a[0]).map(x => x[1]);
+}
+function buscarPessoas(q) {
+  const toks = nrm(q).split(/\s+/).filter(Boolean);
+  return toks.length ? D.pessoas.filter(p => toks.every(t => nrm(p.nome).includes(t))) : [];
+}
+function todosPrazos() {
+  const l = [];
+  for (const r of D.registros) for (const p of r.prazos) l.push({r, ...p});
+  return l.sort((a, b) => a.dias - b.dias);
+}
+
+// ---------- telas
+function telaInicio() {
+  const pz = todosPrazos();
+  const n = f => pz.filter(p => f(p.dias)).length;
+  app.innerHTML = `<section class="heroi"><h1>Consulta a instrumentos e atos da SECTI</h1>
+    <p>Contratos, atas, convênios, acordos, portarias, conselhos, editais e normas em um só lugar.</p>
+    <form class="busca" onsubmit="event.preventDefault();location.hash='#/busca/'+encodeURIComponent(this.q.value)">
+      <input name="q" autofocus placeholder="Digite um número, SEI, fornecedor, CNPJ, servidor, objeto…" autocomplete="off"><button>Buscar</button></form>
+    <div class="dicas">Exemplos: <a href="#/busca/007%2F2025">007/2025</a> · um nome de servidor · um CNPJ · “limpeza”</div>
+    <div id="vivo"></div></section>
+  <h2>Prazos <small>instrumentos e atos vigentes</small></h2>
+  <div class="grade">
+    <a class="cartao perigo" href="#/prazos/vencidos"><b>${n(d => d < 0)}</b><span>vencidos</span></a>
+    <a class="cartao alerta" href="#/prazos/30"><b>${n(d => d >= 0 && d <= 30)}</b><span>vencem em até 30 dias</span></a>
+    <a class="cartao" href="#/prazos/60"><b>${n(d => d > 30 && d <= 60)}</b><span>de 31 a 60 dias</span></a>
+    <a class="cartao" href="#/prazos/todos"><b>${pz.length}</b><span>prazos monitorados</span></a></div>
+  <h2>Por tipo</h2>
+  <div class="grade">${D.abas.map(a => `<a class="cartao" href="#/aba/${a.id}"><b>${a.vigentes}</b><span>${esc(a.rotulo)}${a.id === "normas" ? "" : ` vigentes<br>de ${a.total} no total`}</span></a>`).join("")}
+    <a class="cartao" href="#/pessoas"><b>${D.pessoas.length}</b><span>Servidores e designados</span></a></div>`;
+  const inp = app.querySelector("input[name=q]"), vivo = app.querySelector("#vivo");
+  inp.addEventListener("input", () => {
+    const q = inp.value.trim();
+    if (q.length < 2) { vivo.innerHTML = ""; return; }
+    const ps = buscarPessoas(q).slice(0, 4), rs = buscar(q);
+    vivo.innerHTML = `<h2>${rs.length + ps.length} resultado${rs.length + ps.length === 1 ? "" : "s"}</h2>` +
+      (ps.length ? `<div class="chips">${ps.map(p => `<a href="#/p/${p.id}">${esc(p.nome)}</a>`).join("")}</div>` : "") +
+      (rs.length ? `<div class="lista">${rs.slice(0, 8).map(r => linhaRegistro(r)).join("")}</div>` + (rs.length > 8 ? `<p><a href="#/busca/${encodeURIComponent(q)}">Ver os ${rs.length} resultados</a></p>` : "") : (ps.length ? "" : `<div class="vazio">Nada encontrado.</div>`));
+  });
+}
+function telaBusca(q) {
+  const rs = buscar(q), ps = buscarPessoas(q);
+  app.innerHTML = `<form class="busca" style="margin-bottom:14px" onsubmit="event.preventDefault();location.hash='#/busca/'+encodeURIComponent(this.q.value)"><input name="q" value="${esc(q)}"><button>Buscar</button></form>
+    <h2>${rs.length + ps.length} resultado${rs.length + ps.length === 1 ? "" : "s"} para “${esc(q)}”</h2>
+    ${ps.length ? `<div class="chips">${ps.map(p => `<a href="#/p/${p.id}">${esc(p.nome)}</a>`).join("")}</div>` : ""}
+    ${rs.length ? `<div class="lista">${rs.slice(0, 300).map(r => linhaRegistro(r)).join("")}</div>` : (ps.length ? "" : `<div class="vazio">Nada encontrado. Tente menos palavras ou outro termo.</div>`)}`;
+}
+function telaAba(id) {
+  const a = ABA[id];
+  if (!a) return telaInicio();
+  const todos = D.registros.filter(r => r.aba === id);
+  app.innerHTML = `<a class="voltar" href="#/">← Início</a><h2 style="margin-top:0">${esc(a.rotulo)}</h2>
+    <div class="filtros"><input type="text" id="f" placeholder="Filtrar nesta lista…"><label><input type="checkbox" id="v" ${a.vigentes ? "checked" : ""}> só vigentes</label></div><div id="l"></div>`;
+  const f = app.querySelector("#f"), v = app.querySelector("#v"), l = app.querySelector("#l");
+  const desenha = () => {
+    let rs = f.value.trim() ? buscar(f.value).filter(r => r.aba === id) : todos;
+    if (v.checked) rs = rs.filter(r => r.ativo);
+    l.innerHTML = rs.length ? `<p style="color:var(--suave);font-size:13px;margin:0 0 8px">${rs.length} registro${rs.length === 1 ? "" : "s"}</p><div class="lista">${rs.slice(0, 400).map(r => linhaRegistro(r)).join("")}</div>` : `<div class="vazio">Nenhum registro com esse filtro.</div>`;
+  };
+  f.addEventListener("input", desenha); v.addEventListener("change", desenha); desenha();
+}
+const valor = v => /^https?:\/\/\S+$/.test(v) ? `<a href="${esc(v)}" target="_blank" rel="noopener">Abrir o texto</a>` : esc(v);
+const dl = campos => `<dl class="campos">${campos.map(([k, v]) => `<div class="${v.length > 90 ? "largo" : ""}"><dt>${esc(k)}</dt><dd>${valor(v)}</dd></div>`).join("")}</dl>`;
+function telaRegistro(id) {
+  const r = REG[id];
+  if (!r) { app.innerHTML = `<div class="vazio">Registro não encontrado. Ele pode ter sido renomeado na planilha. <a href="#/">Voltar ao início</a></div>`; return; }
+  const colunas = [...new Set(r.itens.flatMap(i => i.map(c => c[0])))];
+  app.innerHTML = `<a class="voltar" href="#/aba/${r.aba}">← ${esc(ABA[r.aba].rotulo)}</a>
+  <article class="ficha"><span class="selo aba">${esc(ABA[r.aba].singular)}</span> ${seloStatus(r)}
+    <h1>${esc(r.titulo)}</h1>${r.partes.length && r.partes.length <= 3 ? `<p class="sub">${esc(r.partes.join(" · "))}</p>` : ""}
+    ${r.prazos.map(p => `<div class="prazo ${tom(p.dias)}"><b>${esc(p.tipo)}</b><span>${dataBR(p.data)}</span><span>${quando(p.dias)}</span></div>`).join("")}
+    ${r.pessoas.length ? `<h2>Responsáveis e designados</h2><div class="chips">${r.pessoas.map(([n, papel]) => `<a href="#/p/${PES["n:" + nrm(n)]?.id || ""}">${esc(n)} · ${esc(papel)}</a>`).join("")}</div>` : ""}
+    <h2>Dados</h2>${dl(r.campos)}
+    ${r.partes.length > 3 ? `<h2>Partícipes <small>${r.partes.length}</small></h2><div class="chips">${r.partes.map(p => `<a>${esc(p)}</a>`).join("")}</div>` : ""}
+    ${r.itens.length ? `<h2>${r.aba === "portarias" ? "Designados" : "Itens"} <small>${r.itens.length}</small></h2><div class="rolagem"><table><tr>${colunas.map(c => `<th>${esc(c)}</th>`).join("")}</tr>${r.itens.map(i => { const m = Object.fromEntries(i); return `<tr>${colunas.map(c => `<td>${esc(m[c] || "")}</td>`).join("")}</tr>`; }).join("")}</table></div>` : ""}
+    ${r.filhos.length ? `<h2>Aditivos, apostilamentos e demais instrumentos <small>${r.filhos.length}</small></h2>${r.filhos.map(f => `<details><summary>${esc(f.titulo || "Instrumento")}</summary>${dl(f.campos)}</details>`).join("")}` : ""}
+  </article>`;
+}
+function telaPessoas() {
+  app.innerHTML = `<a class="voltar" href="#/">← Início</a><h2 style="margin-top:0">Servidores e designados <small>${D.pessoas.length}</small></h2>
+    <div class="filtros"><input type="text" id="f" placeholder="Digite um nome…" autofocus></div><div id="l"></div>`;
+  const f = app.querySelector("#f"), l = app.querySelector("#l");
+  const desenha = () => {
+    const ps = f.value.trim() ? buscarPessoas(f.value) : D.pessoas;
+    l.innerHTML = ps.length ? `<div class="lista">${ps.slice(0, 500).map(p => `<a class="item" href="#/p/${p.id}"><div class="t">${esc(p.nome)}</div><div class="m"><span>${p.itens.length} vínculo${p.itens.length === 1 ? "" : "s"}</span></div></a>`).join("")}</div>` : `<div class="vazio">Nenhum nome encontrado.</div>`;
+  };
+  f.addEventListener("input", desenha); desenha();
+}
+function telaPessoa(id) {
+  const p = PES[id];
+  if (!p) return telaPessoas();
+  const grupos = {};
+  for (const [rid, papel] of p.itens) { const r = REG[rid]; if (r) (grupos[r.aba] ||= []).push([r, papel]); }
+  app.innerHTML = `<a class="voltar" href="#/pessoas">← Servidores</a><article class="ficha"><span class="selo aba">Servidor ou designado</span><h1>${esc(p.nome)}</h1>
+    <p class="sub">${p.itens.length} vínculo${p.itens.length === 1 ? "" : "s"} na planilha do Jurídico</p></article>
+    ${D.abas.filter(a => grupos[a.id]).map(a => `<h2>${esc(a.rotulo)} <small>${grupos[a.id].length}</small></h2><div class="lista">${grupos[a.id].sort((x, y) => y[0].ativo - x[0].ativo).map(([r, papel]) => linhaRegistro(r, papel)).join("")}</div>`).join("")}`;
+}
+function telaPrazos(faixa) {
+  const pz = todosPrazos(), tipos = [...new Set(pz.map(p => p.tipo))].sort();
+  app.innerHTML = `<a class="voltar" href="#/">← Início</a><h2 style="margin-top:0">Prazos <small>data de referência: ${dataBR(D.hoje)}</small></h2>
+    <div class="filtros"><select id="fx">${FAIXAS.map(f => `<option value="${f[0]}" ${f[0] === (faixa || "todos") ? "selected" : ""}>${f[1]}</option>`).join("")}</select>
+    <select id="tp"><option value="">Todos os tipos de prazo</option>${tipos.map(t => `<option>${esc(t)}</option>`).join("")}</select>
+    <select id="ab"><option value="">Todos os instrumentos</option>${D.abas.map(a => `<option value="${a.id}">${esc(a.rotulo)}</option>`).join("")}</select></div><div id="l"></div>`;
+  const fx = app.querySelector("#fx"), tp = app.querySelector("#tp"), ab = app.querySelector("#ab"), l = app.querySelector("#l");
+  const desenha = () => {
+    const teste = FAIXAS.find(f => f[0] === fx.value)[2];
+    const sel = pz.filter(p => teste(p.dias) && (!tp.value || p.tipo === tp.value) && (!ab.value || p.r.aba === ab.value));
+    l.innerHTML = sel.length ? `<div class="rolagem"><table><tr><th>Data</th><th>Prazo</th><th>Instrumento ou ato</th><th>Responsável</th></tr>${sel.map(p => `<tr><td style="white-space:nowrap"><b>${dataBR(p.data)}</b><br><span class="selo ${tom(p.dias)}">${quando(p.dias)}</span></td><td>${esc(p.tipo)}</td>
+      <td><a href="#/r/${p.r.id}">${esc(p.r.titulo)}</a><br><span style="color:var(--suave);font-size:13px">${esc([ABA[p.r.aba].rotulo, p.r.partes[0]].filter(Boolean).join(" · "))}</span></td>
+      <td>${esc(p.r.pessoas.slice(0, 2).map(x => x[0]).join("; "))}</td></tr>`).join("")}</table></div>` : `<div class="vazio">Nenhum prazo nesta seleção.</div>`;
+  };
+  [fx, tp, ab].forEach(e => e.addEventListener("change", desenha)); desenha();
+}
+function rota() {
+  const [, tela = "", ...resto] = decodeURIComponent(location.hash).split("/");
+  const arg = resto.join("/");
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.r === (tela === "p" ? "pessoas" : ["prazos", "pessoas"].includes(tela) ? tela : "")));
+  ({busca: () => telaBusca(arg), aba: () => telaAba(arg), r: () => telaRegistro(arg), pessoas: telaPessoas, p: () => telaPessoa(arg), prazos: () => telaPrazos(arg)}[tela] || telaInicio)();
+  window.scrollTo(0, 0);
+}
+fetch("data.json?" + Date.now()).then(r => r.json()).then(d => {
+  D = d;
+  for (const a of d.abas) ABA[a.id] = a;
+  for (const p of d.pessoas) { PES[p.id] = p; PES["n:" + nrm(p.nome)] = p; }
+  for (const r of d.registros) {
+    REG[r.id] = r;
+    const t = nrm([r.titulo, r.numero, r.sei].join(" "));
+    const x = nrm([r.objeto, r.partes.join(" "), r.cnpj.join(" "), r.unidade, r.status, ABA[r.aba].rotulo, r.pessoas.map(p => p[0]).join(" "), r.itens.map(i => i.map(c => c[1]).join(" ")).join(" "), r.filhos.map(f => f.titulo).join(" ")].join(" "));
+    HAY.push({r, t: t + " " + semZeros(t), x: x + " " + semZeros(x), d: (r.sei + " " + r.cnpj.join(" ") + " " + r.numero).replace(/\D/g, "")});
+  }
+  document.title = d.titulo;
+  document.getElementById("rodape").textContent = `Atualizado em ${d.gerado_em}, a partir da planilha do Setor Jurídico. O painel mostra apenas informações públicas; dados pessoais e andamentos internos não são publicados. Em caso de divergência, vale o instrumento publicado.`;
+  addEventListener("hashchange", rota); rota();
+}).catch(e => { app.innerHTML = `<div class="vazio">Não foi possível carregar os dados. Tente recarregar a página.<br><small>${esc(e.message)}</small></div>`; });
+</script>
+</body>
+</html>

@@ -441,15 +441,18 @@ def montar_email(cfg, registros, rotulos, pendencias, internos, internas, avisos
 
 
 def enviar(assunto, corpo, para):
-    if not os.environ.get("GMAIL_USER") or not os.environ.get("GMAIL_APP_PASSWORD"):
-        sys.exit("ERRO: faltam os segredos GMAIL_USER e GMAIL_APP_PASSWORD (veja o README, passo 4).")
-    usuario, senha = os.environ["GMAIL_USER"], os.environ["GMAIL_APP_PASSWORD"].replace(" ", "")
+    """Envia pelo servidor SMTP do Brevo (sem exigir verificação em duas etapas)."""
+    login, chave = os.environ.get("BREVO_SMTP_LOGIN"), os.environ.get("BREVO_SMTP_KEY")
+    remetente = os.environ.get("EMAIL_REMETENTE")
+    if not (login and chave and remetente):
+        sys.exit("ERRO: faltam os segredos BREVO_SMTP_LOGIN, BREVO_SMTP_KEY e EMAIL_REMETENTE (veja o README, passo 4).")
     msg = MIMEMultipart("alternative")
-    msg["Subject"], msg["From"], msg["To"] = assunto, f"Painel do Jurídico <{usuario}>", ", ".join(para)
+    msg["Subject"], msg["From"], msg["To"] = assunto, f"Painel do Jurídico <{remetente}>", ", ".join(para)
     msg.attach(MIMEText(corpo, "html", "utf-8"))
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as s:
-        s.login(usuario, senha)
-        s.sendmail(usuario, para, msg.as_string())
+    with smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=60) as s:
+        s.starttls()
+        s.login(login, chave.strip())
+        s.sendmail(remetente, para, msg.as_string())
 
 
 # ---------------------------------------------------------------- principal

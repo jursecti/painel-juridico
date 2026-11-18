@@ -22,12 +22,13 @@ CPF, telefone, e-mail e matrícula são removidos de qualquer texto antes da pub
    - Em "IAM e administrador > Contas de serviço", criar uma conta de serviço.
    - Na conta criada, em "Chaves", adicionar uma chave do tipo JSON. Um arquivo será baixado.
    - Compartilhar a planilha JURIDICO com o e-mail da conta de serviço, como **Leitor**.
-3. **Senha de aplicativo do Gmail.** Na conta que enviará os e-mails, com a verificação em
-   duas etapas ativada, criar uma senha em myaccount.google.com/apppasswords.
+3. **Chave de envio do Brevo.** Em brevo.com, confirmar o remetente (Remetentes e IP) e, em
+   "SMTP e API > Chaves SMTP", gerar uma chave. Anotar também o login SMTP exibido na tela.
 4. **Segredos no GitHub.** Em "Settings > Secrets and variables > Actions", criar:
    - `GOOGLE_CREDENTIALS` – o conteúdo inteiro do arquivo JSON;
-   - `GMAIL_USER` – o endereço do Gmail remetente;
-   - `GMAIL_APP_PASSWORD` – a senha de aplicativo.
+   - `BREVO_SMTP_LOGIN` – o login SMTP do Brevo;
+   - `BREVO_SMTP_KEY` – a chave SMTP gerada;
+   - `EMAIL_REMETENTE` – o endereço do remetente confirmado no Brevo.
 5. **Publicação.** Em "Settings > Pages", escolher "GitHub Actions" como fonte.
 6. **Primeira execução.** Em "Actions > Atualizar painel", clicar em "Run workflow".
 
